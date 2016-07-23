@@ -11,10 +11,12 @@
 <div class="col-md-offset-1 col-md-10">
 <h1>PHP API-TODO - A REST API for PHP TODOs
 </h1>
-
 <br>
-
-<h2>Script do Banco - MySQL</h2>
+<h2>Install</h2>
+<code># php composer install</code>
+<code># php -S 0.0.0.0:8080 -t tasks tasks/index.php</code>
+<p>Run on Browser http://0.0.0.0:8080/tasks</p>
+<h3>Script MySQL</h3>
 <pre>
 <code>
 CREATE DATABASE  IF NOT EXISTS `todo`
@@ -32,11 +34,21 @@ CREATE TABLE `tasks` (
 </code>
 </pre>
 
-<h2>Install</h2>
-<code># php composer install</code>
-<code># php -S 0.0.0.0:8080 -t tasks tasks/index.php</code>
-<p>Run on Browser http://0.0.0.0:8080/tasks</p>
-
+<br>
+<h2>Object Model</h2>
+<pre>
+<code>
+{
+  "uuid": "",
+  "type": "",
+  "content": "",
+  "sort_order" : 0,
+  "done" : true|false,
+  "date_created": ""
+}
+</code>
+</pre>
+<br />
 <h2>URI's</h2>
 <table class="table" style="page-break-before: auto; page-break-after: auto; page-break-inside: auto; width: 100%;">
 <tbody>   
@@ -58,7 +70,17 @@ CREATE TABLE `tasks` (
 <tr>
   <td>/tasks/</td>
   <td>POST</td>
-  <td>Retorna os detalhes da task por id</td>  
+  <td>Insere no banco mediante ao modelo do objeto</td>  
+</tr>
+<tr>
+  <td>/tasks/</td>
+  <td>DELETE</td>
+  <td>Deleta do banco mediante ao objeto: {"uuid": number}</td>  
+</tr>
+<tr>
+  <td>/tasks/</td>
+  <td>PUT</td>
+  <td>Atualiza o registro no banco mediante ao modelo do objeto</td>  
 </tr>
 </tbody>
 </table>
