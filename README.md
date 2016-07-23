@@ -18,6 +18,8 @@
 <code>
 CREATE DATABASE  IF NOT EXISTS `todo` /*!40100 DEFAULT CHARACTER SET latin1 */;
 USE `todo`;
+</code>
+<code>
 CREATE TABLE `tasks` (
   `uuid` int(11) NOT NULL AUTO_INCREMENT,
   `type` enum('shopping','work') DEFAULT NULL,
