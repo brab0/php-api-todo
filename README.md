@@ -50,6 +50,15 @@ CREATE TABLE `tasks` (
 </code>
 </pre>
 <br />
+
+<h3>Testing with PHPUnit</h3>
+<p>On Terminal:</p>
+<pre>
+<code>
+# php vendor/bin/phpunit tasks/ControllerTest
+</code>
+</pre>
+<br />
 <h2>URI's</h2>
 <table class="table" style="page-break-before: auto; page-break-after: auto; page-break-inside: auto; width: 100%;">
 <tbody>   
