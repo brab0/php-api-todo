@@ -31,7 +31,7 @@ CREATE TABLE `tasks` (
   `done` enum('true','false') DEFAULT 'false',
   `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`uuid`)
-) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 </code>
 </pre>
 
