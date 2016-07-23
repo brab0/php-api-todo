@@ -1,6 +1,6 @@
 {
-	"name" : "api-todo",
-  	"description" : "Api REST for TODOs",
+	"name" : "php-api-todo",
+  	"description" : "Api REST PHP for TODOs",
   	"version" : "1.0.0",
 	"require": {
 		"slim/slim": "2.*",
