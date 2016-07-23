@@ -1,5 +1,5 @@
 <?php
-require 'vendor/slim/Slim/Slim.php';
+require 'vendor/slim/Slim/Slim/Slim.php';
 require_once 'Connection.php';
 require 'Controller.php';
 
