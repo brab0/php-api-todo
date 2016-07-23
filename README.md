@@ -11,7 +11,7 @@
 <div class="col-md-offset-1 col-md-10">
 <h1>PHP API-TODO - A REST API for PHP TODOs
 </h1>
-<br>
+<br />
 <h2>Install</h2>
 <code># php composer install</code>
 <br />
