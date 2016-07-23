@@ -16,7 +16,10 @@
 <code># php composer install</code>
 <br />
 <code># php -S 0.0.0.0:8080 -t tasks tasks/index.php</code>
+<br />
 <p>Run on Browser http://0.0.0.0:8080/tasks</p>
+<br />
+<p>Edit Database setting at the Connection.php file</p>
 <h3>Script MySQL</h3>
 <pre>
 <code>
