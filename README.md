@@ -17,7 +17,7 @@
 <h2>Script do Banco - MySQL</h2>
 <pre>
 <code>
-CREATE DATABASE  IF NOT EXISTS `todo` /*!40100 DEFAULT CHARACTER SET latin1 */;
+CREATE DATABASE  IF NOT EXISTS `todo`
 USE `todo`;
 
 CREATE TABLE `tasks` (
@@ -32,38 +32,33 @@ CREATE TABLE `tasks` (
 </code>
 </pre>
 
+<h2>Install</h2>
+<code># php composer install</code>
+<code># php -S 0.0.0.0:8080 -t tasks tasks/index.php</code>
+<p>Run on Browser http://0.0.0.0:8080/tasks</p>
+
 <h2>URI's</h2>
 <table class="table" style="page-break-before: auto; page-break-after: auto; page-break-inside: auto; width: 100%;">
-
 <tbody>   
 <tr>
   <th>URI</th>
   <th>Tipo</th>
   <th>Descrição</th>
 </tr>
-
 <tr>
-  <td>
-    /
-  </td>
-  <td>
-    GET
-  </td>
-  <td>
-    Retorna todas as tasks
-  </td>  
+  <td>/</td>
+  <td>GET</td>
+  <td>Retorna todas as tasks</td>  
 </tr>
-
 <tr>
-  <td>
-    /tasks/{id}
-  </td>
-  <td>
-    GET
-  </td>
-  <td>
-    Retorna os detalhes da task por id
-  </td>  
+  <td>/tasks/{id}</td>
+  <td>GET</td>
+  <td>Retorna os detalhes da task por id</td>  
+</tr>
+<tr>
+  <td>/tasks/</td>
+  <td>POST</td>
+  <td>Retorna os detalhes da task por id</td>  
 </tr>
 </tbody>
 </table>
