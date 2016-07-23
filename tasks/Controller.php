@@ -16,10 +16,12 @@ class Controller
 	
 		$tasks = array();
 
+		//set results to array
 		while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
 			$tasks[] = $row;
 		}
 
+		//check if array has something
 		if (!empty($tasks)) {
 	   		return json_encode($tasks);
 	   	}
@@ -30,6 +32,7 @@ class Controller
 
     public function getByUUID($uuid = null)
     {
+    	//get a specific task by UUID
     	$result = $this->db->query('SELECT * FROM tasks where uuid = ' . $uuid);
 	
    		return json_encode($result->fetch_array(MYSQLI_ASSOC));
@@ -37,7 +40,7 @@ class Controller
 
     public function insert($task = [])
     {
-    	//cast object
+    	//cast object to use empty function
     	if ( (!empty((array) $task)) && ($task->content !== "") ) {
 			if ( ($task->type == "shopping") || ($task->type == "work") ) {
 				$result = $this->db->query('INSERT INTO tasks(type, content, sort_order, done)
@@ -77,12 +80,21 @@ class Controller
 			$task->sort_order = 1;
 		}
 
+		
 		$result = $this->db->query('SELECT * FROM tasks where uuid = ' . $task->uuid);
 
+		//check if the query above return that specific uuid
 	    if (!$result->fetch_array(MYSQLI_ASSOC)["uuid"]) {
 	    	return "Are you a hacker or something? The task you were trying to edit doesn't exist.";
 	    }
-		elseif ( ($task->type == "shopping") || ($task->type == "work") ) {
+		elseif ( ($task->type == "shopping") || ($task->type == "work") ) { //assert that only these two types will get in
+
+			/* 
+			 *	search for task thats has sort_order >= than that which 
+			 *  was received. Plus, the in results can't be related to			
+			 *  the task was received. (uuid != ' . $task->uuid)
+			 */
+
 			$resultUuids = $this->db->query('SELECT uuid, sort_order 
 												FROM tasks 
 												WHERE sort_order >= ' . $task->sort_order . '
@@ -91,7 +103,11 @@ class Controller
 			
 			$alreadyExist = false;
 			
-			while ($row = $resultUuids->fetch_array(MYSQLI_ASSOC)) {				
+			while ($row = $resultUuids->fetch_array(MYSQLI_ASSOC)) {
+
+				//if loop found a sort_order equal then that was sent
+				//tell the method thad we have to treat that ($alreadyExist = true)
+
 				if($row["sort_order"] == $task->sort_order) {
 					$alreadyExist = true;
 				}
@@ -102,11 +118,14 @@ class Controller
 			if ($alreadyExist) {
 				$strUuids = implode(",", $arrUuids);
 				
+				// now we know the uuids that are directly affected by the new record
+				// we can sum 1 to the sort_order of all subsequents
 				$this->db->query('UPDATE tasks
-								  	SET sort_order = sort_order + 1				  		
+								  	SET sort_order = sort_order + 1	
 								  	WHERE uuid in (' . $strUuids .')');
 			}			
 			
+			//...and finally update our record
 			$this->db->query('UPDATE tasks
 							  	SET type = "' . $task->type .'",
 							  		content = "' . $task->content .'",
