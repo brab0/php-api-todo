@@ -1,0 +1,9 @@
+{
+	"name" : "api-todo",
+  	"description" : "Api REST for TODOs",
+  	"version" : "1.0.0",
+	"require": {
+		"slim/slim": "2.*",
+		"phpunit/phpunit": "4.8.*"
+	}
+}
