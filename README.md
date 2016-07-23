@@ -55,7 +55,7 @@ CREATE TABLE `tasks` (
 <p>On Terminal:</p>
 <pre>
 <code>
-# php vendor/bin/phpunit tasks/ControllerTest
+# php vendor/bin/phpunit --verbose tasks/ControllerTest
 </code>
 </pre>
 <br />
