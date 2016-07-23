@@ -80,7 +80,7 @@ CREATE TABLE `tasks` (
 <tr>
   <td>/tasks/</td>
   <td>POST</td>
-  <td>Insere no banco mediante ao modelo do objeto</td>  
+  <td>Insere no banco mediante ao modelo do objeto passado como parâmetro no formato json</td>  
 </tr>
 <tr>
   <td>/tasks/</td>
@@ -90,7 +90,7 @@ CREATE TABLE `tasks` (
 <tr>
   <td>/tasks/</td>
   <td>PUT</td>
-  <td>Atualiza o registro no banco mediante ao modelo do objeto</td>  
+  <td>Atualiza o registro no banco mediante ao modelo do objeto passado como parâmetro no formato json</td>  
 </tr>
 </tbody>
 </table>
