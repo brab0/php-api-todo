@@ -19,7 +19,7 @@
 <br />
 <p>Run on Browser http://0.0.0.0:8080/tasks</p>
 <br />
-<p>Edit Database setting at the Connection.php file</p>
+<p>Edit Database setting in the Connection.php file</p>
 <h3>Script MySQL</h3>
 <pre>
 <code>
